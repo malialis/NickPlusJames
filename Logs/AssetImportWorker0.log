@@ -181,3 +181,27 @@ Received Import Request.
   path: Assets/Scenes/Test.unity
   artifactKey: Guid(701a2b2ab89384fd6b2aa8390402d722) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/Test.unity using Guid(701a2b2ab89384fd6b2aa8390402d722) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82087bb25a19353fdbca37f6c42d54c5') in 0.002088 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 247.286946 seconds.
+  path: Assets/Tiles
+  artifactKey: Guid(a94b19e3b599740e1b02260792777050) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles using Guid(a94b19e3b599740e1b02260792777050) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17401112f5f1ff7b1bd0a61a29a58834') in 0.001241 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.625937 seconds.
+  path: Assets/Tiles/Main
+  artifactKey: Guid(dcd9aef15da0043cdbd97cbeb589ab0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/Main using Guid(dcd9aef15da0043cdbd97cbeb589ab0e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efe1c06bd14356780de5b5daf2cf08a4') in 0.001205 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 373.073350 seconds.
+  path: Assets/Art/Ansimuz/Warped/environment/layers/walls.png
+  artifactKey: Guid(f4d8d7395af26594298c3ecadcbcca17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Ansimuz/Warped/environment/layers/walls.png using Guid(f4d8d7395af26594298c3ecadcbcca17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '745b1b1dda591bb6d6626b2afba41d6a') in 0.546042 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 477.351607 seconds.
+  path: Assets/Art/Ansimuz/Warped/spritesheets/player/player-idle.png
+  artifactKey: Guid(3607ff319a5a56141aa94c66e33ca304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Ansimuz/Warped/spritesheets/player/player-idle.png using Guid(3607ff319a5a56141aa94c66e33ca304) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '548d68b401825cce5a7ca3faf94744af') in 0.030177 seconds 

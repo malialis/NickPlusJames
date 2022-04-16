@@ -3510,6 +3510,7 @@ GameObject:
   - component: {fileID: 1151824052}
   - component: {fileID: 1151824053}
   - component: {fileID: 1151824054}
+  - component: {fileID: 1151824055}
   m_Layer: 7
   m_Name: Standing_Sprite
   m_TagString: Untagged
@@ -3600,6 +3601,26 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.25}
   m_Size: {x: 0.9, y: 2.5}
   m_Direction: 0
+--- !u!95 &1151824055
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151824051}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9342d3395719043159791b14cac8dbcf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1251364759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,6 +3690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRB: {fileID: 1251364761}
+  anim: {fileID: 1151824055}
   moveSpeed: 8
   jumpForce: 20
   groundCheckRadious: 0.3

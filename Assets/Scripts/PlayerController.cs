@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D myRB;
+    [SerializeField] private Animator anim;
     
     [Header("Move and Jump Variables")]
     [SerializeField] private float moveSpeed = 8f;
@@ -26,6 +27,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Movements();
+        MoveAnimations();
+        Flip();
+        
+
+    }
+
+
+    private void Movements()
+    {
         myRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRB.velocity.y);
 
         isOnGround = Physics2D.OverlapCircle(groundPoint.position, groundCheckRadious, whatIsGround);
@@ -35,6 +46,27 @@ public class PlayerController : MonoBehaviour
             myRB.velocity = new Vector2(myRB.velocity.x, jumpForce);
         }
     }
+
+    private void MoveAnimations()
+    {
+        anim.SetBool("onGround", isOnGround);
+        anim.SetFloat("speed", Mathf.Abs(myRB.velocity.x));
+    }
+
+    private void Flip()
+    {
+        if (myRB.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if (myRB.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+    }
+
+
+
 }
 
 

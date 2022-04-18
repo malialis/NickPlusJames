@@ -3618,7 +3618,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -430948747
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1012134607969099132, guid: 3607ff319a5a56141aa94c66e33ca304, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3737,6 +3737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRB: {fileID: 1251364761}
   anim: {fileID: 1151824055}
+  mySR: {fileID: 1151824053}
   moveSpeed: 8
   jumpForce: 20
   groundCheckRadious: 0.3
@@ -3746,6 +3747,13 @@ MonoBehaviour:
     m_Bits: 64
   shotToFire: {fileID: 2362705429470715330, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
   firePoint: {fileID: 330611793}
+  dashSpeed: 25
+  dashTime: 0.3
+  waitAfterDashing: 1
+  afterBurnLifeTime: 0.5
+  timeBetweenAfterBurnImages: 0.033
+  afterBurn: {fileID: 2305839924417104032, guid: 11c793142735647c7b7b4948b8cc86b8, type: 3}
+  afterBurnColor: {r: 0.3254717, g: 0.48670042, b: 1, a: 0.65882355}
 --- !u!1 &1668347909
 GameObject:
   m_ObjectHideFlags: 0

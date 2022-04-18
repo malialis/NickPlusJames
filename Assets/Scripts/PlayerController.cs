@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D myRB;
     [SerializeField] private Animator anim;
-    
+    [SerializeField] private SpriteRenderer mySR;
+
     [Header("Move and Jump Variables")]
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float jumpForce = 20f;
@@ -22,7 +23,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform firePoint;
 
     [Header("Abilities")]
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashTime;
+    [SerializeField] private float waitAfterDashing;
+    private float dashRechargeCounter;
+    private float dashCounter;
     private bool canDoubleJump;
+
+    [Header("AfterBurn Variables")]
+    [SerializeField] private float afterBurnLifeTime;
+    [SerializeField] private float timeBetweenAfterBurnImages;
+    [SerializeField] private SpriteRenderer afterBurn;
+    [SerializeField] private Color afterBurnColor;
+    private float afterBurnCounter;
 
 
     // Start is called before the first frame update
@@ -34,11 +47,31 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movements();
         MoveAnimations();
-        Flip();
+       // Flip();
         Fire01();
+        Fire02();
 
+        if(dashCounter > 0)
+        {
+            dashCounter -= Time.deltaTime;
+            afterBurnCounter -= Time.deltaTime;
+            myRB.velocity = new Vector2(dashSpeed * transform.localScale.x, myRB.velocity.y);
+            if(afterBurnCounter <= 0)
+            {
+                ShowAfterBurn();
+            }
+            dashRechargeCounter = waitAfterDashing;
+        }
+        else
+        {
+            Movements();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Flip();
     }
 
 
@@ -91,6 +124,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Fire02()
+    {
+        if (dashRechargeCounter > 0)
+        {
+            dashRechargeCounter -= Time.deltaTime;
+        }
+        else
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                dashCounter = dashTime;
+                ShowAfterBurn();
+            }
+        }
+    }
+
+    private void ShowAfterBurn()
+    {
+        SpriteRenderer image = Instantiate(afterBurn, transform.position, transform.rotation);
+        image.sprite = mySR.sprite;
+        image.transform.localScale = transform.localScale;
+        image.color = afterBurnColor;
+
+        Destroy(image.gameObject, afterBurnLifeTime);
+
+        afterBurnCounter = timeBetweenAfterBurnImages;
+    }
 
 
 }

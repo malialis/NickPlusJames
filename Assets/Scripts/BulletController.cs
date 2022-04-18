@@ -6,8 +6,9 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed;
     [SerializeField] private Rigidbody2D myRB;
+    [SerializeField] private GameObject impactSFX;
 
-    [SerializeField] private Vector2 moveDirection;
+    public Vector2 moveDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,21 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(impactSFX != null)
+        {
+            Instantiate(impactSFX, transform.position, Quaternion.identity);
+        }
+        //add audio impact latter
         Destroy(gameObject);
         Debug.Log("I hit something and blew up");
     }
 
     private void OnBecameInvisible()
     {
+        if (impactSFX != null)
+        {
+            Instantiate(impactSFX, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject, 3f);
         Debug.Log("I am floating off and now have blew up");
     }

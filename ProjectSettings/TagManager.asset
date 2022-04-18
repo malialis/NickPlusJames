@@ -53,6 +53,9 @@ TagManager:
   - name: Player
     uniqueID: 3864018549
     locked: 0
+  - name: SFX
+    uniqueID: 2588771685
+    locked: 0
   - name: ForeGround
     uniqueID: 2513246303
     locked: 0

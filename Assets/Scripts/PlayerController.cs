@@ -17,6 +17,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask whatIsGround;
     private bool isOnGround;
 
+    [Header("Fire Variables")]
+    [SerializeField] private BulletController shotToFire;
+    [SerializeField] private Transform firePoint;
+
+    [Header("Abilities")]
+    private bool canDoubleJump;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +32,12 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         Movements();
         MoveAnimations();
-        Flip();   
+        Flip();
+        Fire01();
 
     }
 
@@ -40,8 +48,18 @@ public class PlayerController : MonoBehaviour
 
         isOnGround = Physics2D.OverlapCircle(groundPoint.position, groundCheckRadious, whatIsGround);
 
-        if (Input.GetButtonDown("Jump") && isOnGround)
+        if (Input.GetButtonDown("Jump") && (isOnGround || canDoubleJump))
         {
+            if (isOnGround)
+            {
+                canDoubleJump = true;
+            }
+            else
+            {
+                canDoubleJump = false;
+                anim.SetTrigger("doubleJump");
+            }
+
             myRB.velocity = new Vector2(myRB.velocity.x, jumpForce);
         }
     }
@@ -61,6 +79,15 @@ public class PlayerController : MonoBehaviour
         else if (myRB.velocity.x > 0)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+    }
+
+    private void Fire01()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(shotToFire, firePoint.position, firePoint.rotation).moveDirection = new Vector2(transform.localScale.x, 0f);
+            anim.SetTrigger("shotFired");
         }
     }
 

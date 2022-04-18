@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &330611792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 330611793}
+  m_Layer: 7
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &330611793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330611792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.959, y: -0.227, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1251364760}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &353644170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3667,6 +3698,7 @@ Transform:
   m_Children:
   - {fileID: 1151824052}
   - {fileID: 353644171}
+  - {fileID: 330611793}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3712,6 +3744,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  shotToFire: {fileID: 2362705429470715330, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
+  firePoint: {fileID: 330611793}
 --- !u!1 &1668347909
 GameObject:
   m_ObjectHideFlags: 0
@@ -3815,60 +3849,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 40, y: 24}
   m_EdgeRadius: 0
---- !u!1001 &2362705428664676292
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.379405
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.13715875
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715328, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2362705429470715333, guid: 2069939618ec148b7b88488dcc327edd, type: 3}
-      propertyPath: m_Name
-      value: PlayerShot
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2069939618ec148b7b88488dcc327edd, type: 3}

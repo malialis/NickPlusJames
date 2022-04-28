@@ -76,8 +76,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         abilityTracker = GetComponent<PlayerAbilityTracker>();
-        myRB = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
 
         isFacingRight = true;
         availableJumpsRemaining = availableJumps;
@@ -91,6 +89,7 @@ public class PlayerController : MonoBehaviour
         Fire02();
 
         CheckInput();
+        CheckAbilities();
         CheckMovementDirection();
         UpdateAnimation();
         CheckIfCanJump();
@@ -222,7 +221,6 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
-        Debug.Log("I have flipped around");
     }
 
     private void CheckEnvironment()
@@ -233,7 +231,7 @@ public class PlayerController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundPoint.position, groundCheckRadious);
-        //Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadious);
+        Gizmos.DrawWireSphere(wallCheck.position, wallCheckRadious);
     }
 
     private void CheckIfCanJump()
@@ -270,7 +268,7 @@ public class PlayerController : MonoBehaviour
                 Instantiate(shotToFire, firePoint.position, firePoint.rotation).moveDirection = new Vector2(transform.localScale.x, 0f);
                 anim.SetTrigger("shotFired");
             }
-            else if(morphBall.activeSelf)
+            else if (morphBall.activeSelf && abilityTracker.canBomb)
             {
                 Instantiate(bomb, bombPoint.position, bombPoint.rotation);
             }
@@ -360,6 +358,20 @@ public class PlayerController : MonoBehaviour
                 ballModeCounter = waitToBallMode;
             }
         }
+    }
+
+    private void CheckAbilities()
+    {
+        if (abilityTracker.canDoubleJump)
+        {
+            availableJumpsRemaining += 1;
+        }
+        else
+        {
+            availableJumpsRemaining = 1;
+        }
+
+
     }
 
 

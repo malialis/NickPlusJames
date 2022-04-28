@@ -22,7 +22,7 @@ TagManager:
   - FXs
   - Wall
   - Destructible
-  - 
+  - Bullets
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 148226867
+    locked: 0
+  - name: PickUps
+    uniqueID: 235160459
     locked: 0
   - name: Player
     uniqueID: 3864018549

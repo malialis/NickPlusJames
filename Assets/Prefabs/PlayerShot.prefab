@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2362705429470715329}
   - component: {fileID: 2362705429470715331}
   - component: {fileID: 2362705429470715330}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: PlayerShot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1706195611
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -3442273424303929756, guid: daa903a88b1dc524aa2f5ece96f3a1a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 15
+  bulletDamageAmount: 1
   myRB: {fileID: 2362705429470715331}
   impactSFX: {fileID: 6035011654962356410, guid: df4dbaaed875c44e294a13a2328f7256, type: 3}
   moveDirection: {x: 1, y: 0}

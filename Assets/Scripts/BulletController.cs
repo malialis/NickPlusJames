@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private int bulletDamageAmount;
     [SerializeField] private Rigidbody2D myRB;
     [SerializeField] private GameObject impactSFX;
 
@@ -24,6 +25,11 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyHealthController>().DamageEnemy(bulletDamageAmount);
+        }
+
         if(impactSFX != null)
         {
             Instantiate(impactSFX, transform.position, Quaternion.identity);
@@ -40,7 +46,6 @@ public class BulletController : MonoBehaviour
             Instantiate(impactSFX, transform.position, Quaternion.identity);
         }
         Destroy(gameObject, 3f);
-        Debug.Log("I am floating off and now have blew up");
     }
 
 }

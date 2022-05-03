@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 143132342}
   - component: {fileID: 143132344}
   - component: {fileID: 143132345}
+  - component: {fileID: 143132346}
   m_Layer: 0
   m_Name: Enemy_Walker
   m_TagString: Enemy
@@ -235,6 +236,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 3
   deathEffect: {fileID: 5949978263899365137, guid: eef95ea55d0bc4f62b589953b1c2d698, type: 3}
+--- !u!114 &143132346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143132340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4a70c35054ce4854b5e2b773dcd7e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToGive: 1
 --- !u!1 &330611792
 GameObject:
   m_ObjectHideFlags: 0
@@ -5661,6 +5675,7 @@ GameObject:
   - component: {fileID: 1251364760}
   - component: {fileID: 1251364761}
   - component: {fileID: 1251364762}
+  - component: {fileID: 1251364764}
   - component: {fileID: 1251364763}
   m_Layer: 7
   m_Name: Player
@@ -5779,6 +5794,20 @@ MonoBehaviour:
   canDash: 0
   canBecomeBall: 0
   canBomb: 0
+--- !u!114 &1251364764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251364759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3bcde1778554efa863297f338a5bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 10
 --- !u!1 &1298505433
 GameObject:
   m_ObjectHideFlags: 0

@@ -38356,8 +38356,11 @@ MonoBehaviour:
   wallCheck: {fileID: 1900241439}
   movementSpeed: 10
   jumpForce: 16
-  groundCheckRadious: 0.3
-  wallCheckDistance: 0.3
+  movementForceInAir: 25
+  airDragMultiplier: 1
+  wallSlidingSpeed: 1
+  groundCheckRadious: 0.2
+  wallCheckDistance: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -38365,6 +38368,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   amountOfJumps: 1
+  variableJumpHeightMultiplier: 0.5
+  wallHopDirection: {x: 1, y: 0.5}
+  wallJumpDirection: {x: 1, y: 2}
+  wallHopForce: 5
+  wallJumpForce: 10
+  activeColor: {r: 0, g: 1, b: 0, a: 1}
+  deactiveColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!95 &1915768462
 Animator:
   serializedVersion: 4

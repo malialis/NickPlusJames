@@ -9287,7 +9287,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 5
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9631fd70e350b4bacaa47d7c0a48c934, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
@@ -9333,7 +9333,7 @@ SpriteRenderer:
   m_SortingLayerID: 148226867
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 243448035, guid: a22c58597a4a04a2284d14c97dccda44, type: 3}
+  m_Sprite: {fileID: -878316061, guid: 2feb509a318d642de8e4c86436de755a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -9818,36 +9818,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082273160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae3b0880dbd649b8aaf2dd6eabee04f, type: 3}
+  m_Script: {fileID: 11500000, guid: f058f8801565b4f3394f26abef332a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckDistance: 0.7
-  wallCheckDistance: 0.3
-  movementSpeed: 3
-  maxHealth: 50
-  currentHealth: 0
-  knockBackDurration: 0.2
-  lastTouchDamageTime: 0
-  touchDamageCoolDown: 0
-  touchDamage: 10
-  touchDamageWidth: 0
-  touchDamageHeight: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  whatIsWall:
-    serializedVersion: 2
-    m_Bits: 64
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 128
-  hitParticles: {fileID: 8882360191884154103, guid: 8b64e90b087d340a9a53ab52236fafc4, type: 3}
-  deathChunkParticles: {fileID: 4218024164940211525, guid: 9bb18ae5afaa644b792ec7b5488ecf92, type: 3}
-  deathBloodParticles: {fileID: 2058339192968287924, guid: 181568a3d732346a4bd0e01da032b2ff, type: 3}
-  groundCheck: {fileID: 129052446}
+  entityData: {fileID: 11400000, guid: 639973332e51d480db13be3e09db0a00, type: 2}
   wallCheck: {fileID: 728810207}
-  touchDmgCheck: {fileID: 212817718}
-  knockBackSpeed: {x: 10, y: 5}
+  ledgeCheck: {fileID: 129052446}
+  idleStateData: {fileID: 11400000, guid: 257d23ae367ea480a85ef4d690a8b4ec, type: 2}
+  moveStateData: {fileID: 11400000, guid: 76a9a22e91757411b9cdc0769893b7f1, type: 2}
 --- !u!1 &1154023051
 GameObject:
   m_ObjectHideFlags: 0

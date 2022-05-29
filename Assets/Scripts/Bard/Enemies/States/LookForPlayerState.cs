@@ -29,6 +29,12 @@ public class LookForPlayerState : State
     public override void Enter()
     {
         base.Enter();
+        isAllTurnsDone = false;
+        isAllTurnsTimeDone = false;
+
+        lastTurnTime = startTime;
+        amountOfTurnsDone = 0;
+        entity.SetVelocity(0f);
     }
 
     public override void Exit()

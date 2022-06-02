@@ -16,10 +16,11 @@ public class PlayerCombatController : MonoBehaviour
     private bool isFirstAttack;
 
     private float lastInputTime = Mathf.NegativeInfinity;
-    private float[] attackDetails = new float[2];
+    private AttackDetails attackDetails;
     private Animator anim;
 
     private PlayerController PC;
+    private PlayerStats PS;
 
 
     private void Start()
@@ -27,6 +28,7 @@ public class PlayerCombatController : MonoBehaviour
         anim = GetComponent<Animator>();
         anim.SetBool("canAttack", combatEnabled);
         PC = GetComponent<PlayerController>();
+        PS = GetComponent<PlayerStats>();
     }
 
     private void Update()
@@ -76,8 +78,8 @@ public class PlayerCombatController : MonoBehaviour
     {
         Collider2D[] detectedObjects = Physics2D.OverlapCircleAll(attack01HitBoxPosition.position, attack01Radious, whatIsDamagable);
 
-        attackDetails[0] = attack01Damage;
-        attackDetails[1] = transform.position.x;
+        attackDetails.damageAmount = attack01Damage;
+        attackDetails.position = transform.position;
 
         foreach (Collider2D collider in detectedObjects)
         {
@@ -86,10 +88,15 @@ public class PlayerCombatController : MonoBehaviour
         }
     }
 
-    private void Damage(float[] attackDetails)
+    private void Damage(AttackDetails attackDetails)
     {
-        int direction;
-        if(attackDetails[1] < transform.position.x)
+        if(!PC.GetDashStatus())
+        {
+            int direction;
+
+            //PS.DecreaseHealth(attackDetails.damageAmount);
+
+            if(attackDetails.position.x < transform.position.x)
         {
             direction = 1;
         }
@@ -99,6 +106,8 @@ public class PlayerCombatController : MonoBehaviour
         }
 
         PC.KnockBack(direction);
+        }
+        
     }
 
     private void FinishAttack01()

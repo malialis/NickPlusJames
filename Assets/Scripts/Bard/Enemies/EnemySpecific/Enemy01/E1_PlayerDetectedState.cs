@@ -34,6 +34,8 @@ public class E1_PlayerDetectedState : PlayerDetectedState
         {
             stateMachine.ChangeState(enemy.lookForPlayerState);
         }
+
+        //todo transition to attack
     }
 
     public override void PhysicsUpdate()

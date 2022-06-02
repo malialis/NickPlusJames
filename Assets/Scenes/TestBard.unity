@@ -9187,6 +9187,37 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &653330855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 653330856}
+  m_Layer: 15
+  m_Name: MeleeAttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653330856
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 653330855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.49, y: -0.37, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 708871854}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &708871853
 GameObject:
   m_ObjectHideFlags: 0
@@ -9200,6 +9231,7 @@ GameObject:
   - component: {fileID: 708871857}
   - component: {fileID: 708871856}
   - component: {fileID: 708871855}
+  - component: {fileID: 708871859}
   m_Layer: 15
   m_Name: Alive
   m_TagString: Untagged
@@ -9223,6 +9255,7 @@ Transform:
   - {fileID: 129052446}
   - {fileID: 212817718}
   - {fileID: 899748821}
+  - {fileID: 653330856}
   m_Father: {fileID: 1082273161}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9345,6 +9378,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &708871859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708871853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fed51e9ec1fe465db1532c5656f6bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &728810206
 GameObject:
   m_ObjectHideFlags: 0
@@ -9423,16 +9468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2bed633e52614eb4aafcbe2ca276e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  currentHealth: 0
-  applyKnockBack: 1
-  knockBackSpeedX: 15
-  knockBackSpeedY: 5
-  knockBackDuration: 0.12
-  knockBackDeathSpeedX: 30
-  knockBackDeathSpeedY: 18
-  deathSpeedTorque: 3
-  hitParticles: {fileID: 8457005119182408833, guid: 5006780bade0e489aa3196aee93be644, type: 3}
 --- !u!1 &797744216
 GameObject:
   m_ObjectHideFlags: 0
@@ -9832,8 +9867,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082273160}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.01, y: -11.52, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.0100002, y: -11.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9850,18 +9885,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1082273160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f058f8801565b4f3394f26abef332a38, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ed8bc681cfb84c0592ee109ba37f1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityData: {fileID: 11400000, guid: 639973332e51d480db13be3e09db0a00, type: 2}
+  entityData: {fileID: 11400000, guid: 26ecbab39f01b42c1bbb049e8036f722, type: 2}
   wallCheck: {fileID: 728810207}
   ledgeCheck: {fileID: 129052446}
   playerCheck: {fileID: 899748821}
-  idleStateData: {fileID: 11400000, guid: 257d23ae367ea480a85ef4d690a8b4ec, type: 2}
-  moveStateData: {fileID: 11400000, guid: 76a9a22e91757411b9cdc0769893b7f1, type: 2}
-  playerDetectedData: {fileID: 11400000, guid: 88ca4184938154dc5ae88c67df078e9e, type: 2}
-  chargeStateData: {fileID: 11400000, guid: e33f5c244ef344b54b0168b718a0645b, type: 2}
-  lookForPlayerData: {fileID: 11400000, guid: 90e9509044dd94988b72fe3b6cc90a70, type: 2}
+  idleStateData: {fileID: 11400000, guid: 3e6b4ddb997684e128d884e57fe9f8d0, type: 2}
+  moveStateData: {fileID: 11400000, guid: cdc5abc8aa0f5427ca08fc9509dc1f9a, type: 2}
+  playerDetectedData: {fileID: 11400000, guid: 5aa6a31c04f424b08b455e52ee8ba774, type: 2}
+  chargeStateData: {fileID: 11400000, guid: 524d37a040b734858987f40895f7dd96, type: 2}
+  lookForPlayerData: {fileID: 11400000, guid: 5bc1632ec64f94664883335ad0d11c5a, type: 2}
+  meleeAttackData: {fileID: 11400000, guid: e7699ac420e2f4a1080fa47e5174858e, type: 2}
+  meleeAttackPosition: {fileID: 653330856}
 --- !u!1 &1154023051
 GameObject:
   m_ObjectHideFlags: 0
@@ -64951,46 +64988,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 1915768456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513f2dccd41c8433db4eafa87718c98f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dfd875482d6248218f129825af528b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheck: {fileID: 1345243042}
   wallCheck: {fileID: 1900241439}
   ledgeCheck: {fileID: 1229563779}
   movementSpeed: 10
-  jumpForce: 20
+  jumpForce: 16
   movementForceInAir: 25
   airDragMultiplier: 1
-  wallSlidingSpeed: 1
+  wallSlidingSpeed: 5
   turnTimerSet: 0.1
-  dashTime: 0.25
-  dashSpeed: 50
-  distanceBetweenDashImages: 0.12
-  dashCoolDown: 2.5
-  groundCheckRadious: 0.2
-  wallCheckDistance: 0.75
+  dashTime: 0
+  dashSpeed: 0
+  distanceBetweenDashImages: 0
+  dashCoolDown: 0
+  groundCheckRadious: 1
+  wallCheckDistance: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   whatIsWall:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 4160
   amountOfJumps: 1
   variableJumpHeightMultiplier: 0.5
-  wallHopDirection: {x: 1, y: 0.5}
-  wallJumpDirection: {x: 1, y: 2}
+  wallHopDirection: {x: 0, y: 0}
+  wallJumpDirection: {x: 0, y: 0}
   wallHopForce: 5
-  wallJumpForce: 20
+  wallJumpForce: 10
   wallJumpTimerSet: 0.5
   jumpTimerSet: 0.15
-  ledgeClimbXOffset01: 0.3
-  ledgeClimbXOffset02: 0.5
+  ledgeClimbXOffset01: 0
+  ledgeClimbXOffset02: 0
   ledgeClimbYOffset01: 0
-  ledgeClimbYOffset02: 2
+  ledgeClimbYOffset02: 0
   activeColor: {r: 0, g: 1, b: 0, a: 1}
   deactiveColor: {r: 1, g: 0, b: 0, a: 1}
-  knockBackDuration: 0.1
-  knockBackSpeed: {x: 5, y: 2}
+  knockBackDuration: 0.25
+  knockBackSpeed: {x: 2, y: 1}
 --- !u!95 &1915768462
 Animator:
   serializedVersion: 4
@@ -65020,18 +65057,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1915768456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff8173df1509b486784c10fed933afd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a8424a2f19b24985a0514e2a887bd2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   combatEnabled: 1
   gotInput: 0
-  inputTimer: 0.2
+  inputTimer: 0
   attack01HitBoxPosition: {fileID: 333693142}
   whatIsDamagable:
     serializedVersion: 2
     m_Bits: 32768
   attack01Radious: 1
-  attack01Damage: 10
+  attack01Damage: 5
 --- !u!1 &1996977298
 GameObject:
   m_ObjectHideFlags: 0
@@ -65091,7 +65128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1999070663}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36e4639db8904d6e95c17fd5dc57cbd, type: 3}
+  m_Script: {fileID: 11500000, guid: aafb2c29984a948d5a87359399d7b197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   afterImagePrefab: {fileID: 4395606380747524592, guid: 0701d2f39efd841d5b105a24a850f8c5, type: 3}

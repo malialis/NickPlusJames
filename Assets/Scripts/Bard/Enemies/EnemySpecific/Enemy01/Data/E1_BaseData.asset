@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a588aa2c469e40ff9ced002bf2be0b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 6910c2123de2146c08f60e5302a00665, type: 3}
   m_Name: E1_BaseData
   m_EditorClassIdentifier: 
   wallCheckDistance: 0.3
   ledgeCheckDistance: 0.4
+  playerCheckDistance: 2
   maxAgroDistance: 4
   minAgroDistance: 1
+  closeRangeActionDistance: 1
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128

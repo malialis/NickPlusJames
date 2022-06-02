@@ -39,8 +39,7 @@ public class E1_ChargeState : ChargeState
             {
                 stateMachine.ChangeState(enemy.meleeAttackState);
             }
-
-            if (isPlayerInMinAgroRange)
+            else if (isPlayerInMinAgroRange)
             {
                 stateMachine.ChangeState(enemy.playerDetectedState);
             }

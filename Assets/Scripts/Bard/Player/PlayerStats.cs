@@ -12,16 +12,19 @@ public class PlayerStats : MonoBehaviour
 
     private float currentHealth;
 
+    private GameManager gm;
+
     private void Start() 
     {
-        currentHealth = maxHealth;        
+        currentHealth = maxHealth;  
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();      
     }
 
     public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
 
-        if(currentHealth >= 0.0f)
+        if(currentHealth <= 0.0f)
         {
             Die();
         }
@@ -31,7 +34,8 @@ public class PlayerStats : MonoBehaviour
     {
         Instantiate(deathChunkParticles, transform.position, deathChunkParticles.transform.rotation);
         Instantiate(deathBloodParticles, transform.position, deathBloodParticles.transform.rotation);
-
+        gm.respawn();
         Destroy(gameObject, 0.5f);
     }
 }
+

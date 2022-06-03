@@ -2,40 +2,43 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
-public class PlayerStats : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float maxHealth;
+    [SerializeField] private Transform respawnPoint;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float respawnTime;
+    private float respawnTimeStart;
+    private bool respawn;
+    private CinemachineVirtualCamera cvc;
 
-    [SerializeField] private GameObject deathChunkParticles;
-    [SerializeField] private GameObject deathBloodParticles;
-
-    private float currentHealth;
-
-    private GameManager gm;
 
     private void Start() 
     {
-        currentHealth = maxHealth;  
-        gm = GameObject.Find("GameManager").GetComponent<GameManager>();      
+        cvc = GameObject.Find("Player Camera").GetComponent<CinemachineVirtualCamera>();
+    }
+    private void Update() 
+    {
+        CheckRespawn();
     }
 
-    public void DecreaseHealth(float amount)
+    public void Respawn()
     {
-        currentHealth -= amount;
+        respawnTimeStart = Time.time;
+        respawn = true;
+    }
 
-        if(currentHealth <= 0.0f)
+    private void CheckRespawn()
+    {
+        if(Time.time >= respawnTimeStart + respawnTime && respawn)
         {
-            Die();
+            var playerTemp = Instantiate(player, respawnPoint);
+            cvc.m_follow = playerTemp.transform;
+            respawn = false;
         }
     }
 
-    private voi Die()
-    {
-        Instantiate(deathChunkParticles, transform.position, deathChunkParticles.transform.rotation);
-        Instantiate(deathBloodParticles, transform.position, deathBloodParticles.transform.rotation);
-        gm.respawn();
-        Destroy(gameObject, 0.5f);
-    }
+
 }
 

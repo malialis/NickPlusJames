@@ -30,11 +30,11 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private voi Die()
+    private void Die()
     {
         Instantiate(deathChunkParticles, transform.position, deathChunkParticles.transform.rotation);
         Instantiate(deathBloodParticles, transform.position, deathBloodParticles.transform.rotation);
-        gm.respawn();
+        gm.Respawn();
         Destroy(gameObject, 0.5f);
     }
 }

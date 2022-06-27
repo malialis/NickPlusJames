@@ -195,7 +195,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129052445}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.96000004, y: -0.64, z: 0}
+  m_LocalPosition: {x: 0.96000004, y: -0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9465,9 +9465,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 736291975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2bed633e52614eb4aafcbe2ca276e04, type: 3}
+  m_Script: {fileID: 11500000, guid: c4f2727f6c6b7486b9d0de4b5957f873, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 22
+  currentHealth: 0
+  applyKnockBack: 0
+  knockBackSpeedX: 22
+  knockBackSpeedY: 22
+  knockBackDuration: 1
+  knockBackDeathSpeedX: 33
+  knockBackDeathSpeedY: 33
+  deathSpeedTorque: 22
+  hitParticles: {fileID: 8457005119182408833, guid: 5006780bade0e489aa3196aee93be644, type: 3}
 --- !u!1 &797744216
 GameObject:
   m_ObjectHideFlags: 0
@@ -9892,13 +9902,62 @@ MonoBehaviour:
   wallCheck: {fileID: 728810207}
   ledgeCheck: {fileID: 129052446}
   playerCheck: {fileID: 899748821}
+  groundCheck: {fileID: 129052446}
   idleStateData: {fileID: 11400000, guid: 3e6b4ddb997684e128d884e57fe9f8d0, type: 2}
   moveStateData: {fileID: 11400000, guid: cdc5abc8aa0f5427ca08fc9509dc1f9a, type: 2}
   playerDetectedData: {fileID: 11400000, guid: 5aa6a31c04f424b08b455e52ee8ba774, type: 2}
   chargeStateData: {fileID: 11400000, guid: 524d37a040b734858987f40895f7dd96, type: 2}
   lookForPlayerData: {fileID: 11400000, guid: 5bc1632ec64f94664883335ad0d11c5a, type: 2}
   meleeAttackData: {fileID: 11400000, guid: e7699ac420e2f4a1080fa47e5174858e, type: 2}
+  stunStateData: {fileID: 11400000, guid: 9245d90df185246cc87ccfedb2f568e7, type: 2}
   meleeAttackPosition: {fileID: 653330856}
+--- !u!1 &1093297073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093297075}
+  - component: {fileID: 1093297074}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1093297074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093297073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa511b232dea480db2d34822485aa9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
+  player: {fileID: 1915768456}
+  respawnTime: 10
+--- !u!4 &1093297075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093297073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0554312, y: -12.200474, z: -0.3270365}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154023051
 GameObject:
   m_ObjectHideFlags: 0
@@ -64853,6 +64912,7 @@ GameObject:
   - component: {fileID: 1915768457}
   - component: {fileID: 1915768461}
   - component: {fileID: 1915768463}
+  - component: {fileID: 1915768464}
   - component: {fileID: 1915768462}
   m_Layer: 7
   m_Name: Player
@@ -65000,10 +65060,10 @@ MonoBehaviour:
   airDragMultiplier: 1
   wallSlidingSpeed: 5
   turnTimerSet: 0.1
-  dashTime: 0
-  dashSpeed: 0
-  distanceBetweenDashImages: 0
-  dashCoolDown: 0
+  dashTime: 1
+  dashSpeed: 22
+  distanceBetweenDashImages: 1
+  dashCoolDown: 5
   groundCheckRadious: 1
   wallCheckDistance: 1
   whatIsGround:
@@ -65014,16 +65074,16 @@ MonoBehaviour:
     m_Bits: 4160
   amountOfJumps: 1
   variableJumpHeightMultiplier: 0.5
-  wallHopDirection: {x: 0, y: 0}
-  wallJumpDirection: {x: 0, y: 0}
+  wallHopDirection: {x: 1, y: 1}
+  wallJumpDirection: {x: 1, y: 1}
   wallHopForce: 5
   wallJumpForce: 10
   wallJumpTimerSet: 0.5
   jumpTimerSet: 0.15
-  ledgeClimbXOffset01: 0
-  ledgeClimbXOffset02: 0
-  ledgeClimbYOffset01: 0
-  ledgeClimbYOffset02: 0
+  ledgeClimbXOffset01: 1
+  ledgeClimbXOffset02: 2
+  ledgeClimbYOffset01: 1
+  ledgeClimbYOffset02: 2
   activeColor: {r: 0, g: 1, b: 0, a: 1}
   deactiveColor: {r: 1, g: 0, b: 0, a: 1}
   knockBackDuration: 0.25
@@ -65062,13 +65122,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combatEnabled: 1
   gotInput: 0
-  inputTimer: 0
+  inputTimer: 0.2
   attack01HitBoxPosition: {fileID: 333693142}
   whatIsDamagable:
     serializedVersion: 2
     m_Bits: 32768
   attack01Radious: 1
   attack01Damage: 5
+  stunDamageAmount: 1
+--- !u!114 &1915768464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915768456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8703ae21d55234d2ea8de199e8acef7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  deathChunkParticles: {fileID: 4218024164940211525, guid: 9bb18ae5afaa644b792ec7b5488ecf92, type: 3}
+  deathBloodParticles: {fileID: 2058339192968287924, guid: 181568a3d732346a4bd0e01da032b2ff, type: 3}
 --- !u!1 &1996977298
 GameObject:
   m_ObjectHideFlags: 0

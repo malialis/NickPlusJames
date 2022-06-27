@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         if(Time.time >= respawnTimeStart + respawnTime && respawn)
         {
             var playerTemp = Instantiate(player, respawnPoint);
-            cvc.m_follow = playerTemp.transform;
+            cvc.m_Follow = playerTemp.transform;
             respawn = false;
         }
     }

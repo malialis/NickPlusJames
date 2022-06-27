@@ -11,6 +11,7 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField] private LayerMask whatIsDamagable;
     [SerializeField] private float attack01Radious;
     [SerializeField] private float attack01Damage;
+    [SerializeField] private float stunDamageAmount = 1f;
 
     private bool isAttacking;
     private bool isFirstAttack;
@@ -80,6 +81,7 @@ public class PlayerCombatController : MonoBehaviour
 
         attackDetails.damageAmount = attack01Damage;
         attackDetails.position = transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
 
         foreach (Collider2D collider in detectedObjects)
         {
@@ -94,15 +96,15 @@ public class PlayerCombatController : MonoBehaviour
         {
             int direction;
 
-            //PS.DecreaseHealth(attackDetails.damageAmount);
+            PS.DecreaseHealth(attackDetails.damageAmount);
 
             if(attackDetails.position.x < transform.position.x)
         {
-            direction = 1;
+                direction = 1;
         }
         else
         {
-            direction = -1;
+                direction = -1;
         }
 
         PC.KnockBack(direction);

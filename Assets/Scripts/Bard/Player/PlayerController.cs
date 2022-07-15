@@ -515,23 +515,23 @@ public class PlayerController : MonoBehaviour
         if (isTouchingWall)
         {
             Gizmos.color = activeColor;
-            Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+            Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance * facingDirection, wallCheck.position.y, wallCheck.position.z));
         }
         else
         {
             Gizmos.color = deactiveColor;
-            Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+            Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance * facingDirection, wallCheck.position.y, wallCheck.position.z));
         }
 
         if (isTouchingLedge)
         {
             Gizmos.color = activeColor;
-            Gizmos.DrawLine(ledgeCheck.position, new Vector3(ledgeCheck.position.x + wallCheckDistance, ledgeCheck.position.y, ledgeCheck.position.z));
+            Gizmos.DrawLine(ledgeCheck.position, new Vector3(ledgeCheck.position.x + wallCheckDistance * facingDirection, ledgeCheck.position.y, ledgeCheck.position.z));
         }
         else
         {
             Gizmos.color = deactiveColor;
-            Gizmos.DrawLine(ledgeCheck.position, new Vector3(ledgeCheck.position.x + wallCheckDistance, ledgeCheck.position.y, ledgeCheck.position.z));
+            Gizmos.DrawLine(ledgeCheck.position, new Vector3(ledgeCheck.position.x + wallCheckDistance * facingDirection, ledgeCheck.position.y, ledgeCheck.position.z));
         }
 
         if (isGrounded)
@@ -545,7 +545,7 @@ public class PlayerController : MonoBehaviour
             Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadious);
         }
 
-        Gizmos.DrawLine(ledgePosition01, ledgePosition02);
+        Gizmos.DrawLine(ledgePosition01 * facingDirection, ledgePosition02);
     }
 
 

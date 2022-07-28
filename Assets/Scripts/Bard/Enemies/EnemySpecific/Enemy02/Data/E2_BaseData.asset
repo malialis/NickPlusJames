@@ -22,7 +22,7 @@ MonoBehaviour:
   minAgroDistance: 1
   stunResistance: 3
   stunRecoveryTime: 2
-  closeRangeActionDistance: 1
+  closeRangeActionDistance: 1.5
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128

@@ -29,6 +29,7 @@ public class E1_MeleeAttackState : MeleeAttackState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
         if (isAnimationFinished)
         {
             if (isPlayerInMinAgroRange)

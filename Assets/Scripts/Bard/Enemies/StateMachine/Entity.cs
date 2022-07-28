@@ -26,6 +26,7 @@ public class Entity : MonoBehaviour
     private float lastDamageTime;
 
     protected bool isStunned;
+    protected bool isDead;
     
 
     public virtual void Start()

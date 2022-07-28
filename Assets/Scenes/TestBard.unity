@@ -441,6 +441,9 @@ MonoBehaviour:
   idleStateData: {fileID: 11400000, guid: 2ca82fe47fab046b19f2e98ad0965396, type: 2}
   playerDetectedStateData: {fileID: 11400000, guid: 1188f512b00924e4d967d920bbf31584, type: 2}
   meleeAttackStateData: {fileID: 11400000, guid: d845cda4af5a4403d9a8e169a33f9244, type: 2}
+  lookForPlayerStateData: {fileID: 11400000, guid: 2342565fc72b94309858c093d186b59d, type: 2}
+  stunStateData: {fileID: 11400000, guid: ebace5e56f1cd4d8e8590b5182989421, type: 2}
+  deadStateData: {fileID: 11400000, guid: e57d8295c14024d25bb394f756a54328, type: 2}
   meleeAttackPosition: {fileID: 549969189}
 --- !u!1 &323573891
 GameObject:

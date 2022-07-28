@@ -29,6 +29,7 @@ public class E1_LookForPlayerState : LookForPlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
         if (isPlayerInMinAgroRange)
         {
             stateMachine.ChangeState(enemy.playerDetectedState);

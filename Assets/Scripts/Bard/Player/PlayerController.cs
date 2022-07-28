@@ -104,13 +104,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         CheckInput();
-        CheckMovementDirection();        
-        CheckIfCanJump();
-        CheckJump();
-        CheckIfCanDash();
-        CheckIfWallSliding();
-        CheckLedgeClimb();
+        CheckMovementDirection();
         UpdateAnimations();
+        CheckIfCanJump();
+        CheckIfWallSliding();
+        CheckJump();
+        CheckLedgeClimb();
+        CheckIfCanDash();
+        CheckKnockBack();
     }
 
     private void FixedUpdate()
@@ -313,22 +314,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }
-        else if(canMove && !knockBack)
+        else if (canMove && !knockBack)
         {
             rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
         }
-        /*else if(!isGrounded && !isWallSliding && movementInputDirection != 0)
-        {
-            Vector2 forceToAdd = new Vector2(movementForceInAir * movementInputDirection, 0);
-            rb.AddForce(forceToAdd);
 
-            if(MathF.Abs(rb.velocity.x) > movementSpeed)
-            {
-                rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
-            }
-        }
-        */
-        
+
         if (isWallSliding)
         {
             if (rb.velocity.y < -wallSlidingSpeed)
@@ -551,46 +542,3 @@ public class PlayerController : MonoBehaviour
 
 }
 
-/*
-
-
-n the jump() delete this:
-        if (!isGrounded && !isWallSliding && movementInputDirection != 0)
-        {
-    Vector2 force = new Vector2(Time.fixedDeltaTime * airpullback * movementInputDirection, 0);
-    rb.AddForce(force);
-    if (Mathf.Abs(rb.velocity.x) > horizontalMovement)
-    {
-        rb.velocity = new Vector2(horizontalMovement * movementInputDirection, rb.velocity.y);
-    }
-}
-and put this under jump():
-        if (!isGrounded && !isWallSliding && movementInputDirection == 1 && facingRight)
-        {
-    if (rb.velocity.x >= horizontalMovement)
-    {
-    }
-    else
-    {
-        Vector2 force = new Vector2(Time.fixedDeltaTime * airpullback, 0);
-        rb.AddForce(force);
-    }
-}
-        if (!isGrounded && !isWallSliding && movementInputDirection == -1 && !facingRight)
-        {
-    if (Mathf.Abs(rb.velocity.x) >= horizontalMovement)
-    {
-    }
-    else
-    {
-        Vector2 force = new Vector2(Time.fixedDeltaTime * airpullback * -1, 0);
-        rb.AddForce(force);
-    }
-}
-        if (!isGrounded && !isWallSliding && ((movementInputDirection == 1 && !facingRight) || (movementInputDirection == -1 && facingRight)))
-        {
-    Vector2 force = new Vector2(Time.fixedDeltaTime * airpullback * movementInputDirection, 0);
-    rb.AddForce(force);
-}
-
-*/

@@ -42,6 +42,10 @@ public class E2_MeleeAttackState : MeleeAttackState
                 stateMachine.ChangeState(enemy.playerDetectedState);
             }
             //todo look for player
+            else if (!isPlayerInMinAgroRange)
+            {
+                stateMachine.ChangeState(enemy.lookForPlayerState);
+            }
         }
     }
 

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E2_PlayerDetectedState : PlayerDetectedState
+public class E2_DeadState : DeadState
 {
     private Enemy02 enemy;
 
-    public E2_PlayerDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData, Enemy02 enemy) : base(entity, stateMachine, animBoolName, stateData)
+    public E2_DeadState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_DeadState stateData, Enemy02 enemy) : base(entity, stateMachine, animBoolName, stateData)
     {
         this.enemy = enemy;
     }
@@ -29,15 +29,6 @@ public class E2_PlayerDetectedState : PlayerDetectedState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if (performCloseRangeAction)
-        {
-            stateMachine.ChangeState(enemy.meleeAttackState);
-        }
-        else if (!isPlayerInMaxAgroRange)
-        {
-            stateMachine.ChangeState(enemy.lookForPlayerState);
-        }
     }
 
     public override void PhysicsUpdate()

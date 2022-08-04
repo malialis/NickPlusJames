@@ -18,8 +18,8 @@ MonoBehaviour:
   maxHealth: 30
   damageHopSpeed: 10
   groundCheckRadious: 0.3
-  maxAgroDistance: 4
-  minAgroDistance: 1
+  maxAgroDistance: 9
+  minAgroDistance: 5
   stunResistance: 3
   stunRecoveryTime: 2
   closeRangeActionDistance: 1.5

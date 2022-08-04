@@ -445,7 +445,9 @@ MonoBehaviour:
   stunStateData: {fileID: 11400000, guid: ebace5e56f1cd4d8e8590b5182989421, type: 2}
   deadStateData: {fileID: 11400000, guid: e57d8295c14024d25bb394f756a54328, type: 2}
   dodgeStateData: {fileID: 11400000, guid: 8fb6981ef99c6467b9879e92059b1963, type: 2}
+  rangedAttackStateData: {fileID: 11400000, guid: ac12e8ae539724cabad84c9a9c012c24, type: 2}
   meleeAttackPosition: {fileID: 549969189}
+  rangedAttackPosition: {fileID: 771135280}
 --- !u!1 &323573891
 GameObject:
   m_ObjectHideFlags: 0
@@ -9127,6 +9129,37 @@ Transform:
   m_Father: {fileID: 1915768460}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &388649828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388649829}
+  m_Layer: 0
+  m_Name: ReSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &388649829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388649828}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.13, y: 4, z: 0.06353984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &460315245
 GameObject:
   m_ObjectHideFlags: 0
@@ -9151,7 +9184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 460315245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.545, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9599,6 +9632,37 @@ MonoBehaviour:
   knockBackDeathSpeedY: 33
   deathSpeedTorque: 22
   hitParticles: {fileID: 8457005119182408833, guid: 5006780bade0e489aa3196aee93be644, type: 3}
+--- !u!1 &771135279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 771135280}
+  m_Layer: 8
+  m_Name: RangedAttackPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &771135280
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771135279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1482842284}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797744216
 GameObject:
   m_ObjectHideFlags: 0
@@ -10093,7 +10157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa511b232dea480db2d34822485aa9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 0}
+  respawnPoint: {fileID: 388649829}
   player: {fileID: 1915768456}
   respawnTime: 10
 --- !u!4 &1093297075
@@ -11132,6 +11196,7 @@ Transform:
   - {fileID: 1190147763}
   - {fileID: 460315246}
   - {fileID: 549969189}
+  - {fileID: 771135280}
   m_Father: {fileID: 298211515}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -66730,3 +66795,60 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &1679495437732589814
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1679495437333085377, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_Name
+      value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1679495437333085388, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: db7f47180bef44e1b9ad33840aa17a9c, type: 3}
